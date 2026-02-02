@@ -1,0 +1,43 @@
+/*
+Inspired by Jongmin Park's sketch from Programming for Artists @ CUNY CCNY Spring 2022
+*/
+
+let rowHeight; // height of the rows
+
+function setup() {
+  createCanvas(600, 600);
+  noStroke(); 
+  rowHeight = height / 3; 
+}
+
+function draw() {
+  
+  if (mouseIsPressed) {
+    background(80, 150); // if mouse is pressed is a darker background with more transparency
+  } else {
+    background(150, 80); // if mouse is pressed is a lighter background with more opacity
+  }
+  
+  let x = mouseX; // x coordinate is mouse location
+  let y = mouseY; // y coordinate is mouse location
+  
+  fill(255, 150);
+  circle(x, height / 2, y); // white transparent circle. x coordinate of circle will always be positioned wherever mouse is located and it will be on the middle vertically, its diameter will be the y mouse location
+
+  let inverseX = width - mouseX; // get inverse of prior values
+  let inverseY = height - mouseY; // mirrors horizontally and gets smaller as the other goes bigger
+
+  fill(0, 150); //black circle with medium opacity
+  circle(inverseX, height / 2, inverseY); //draw a circle that is the reverse of the first circle
+
+  if (mouseY < rowHeight) {
+    fill(20, 150);
+    rect(0, 0, width, rowHeight); // if the y mouse position is smaller than a third of the height, an almost black rectangle will be drawn on the whole upper third of the skectch with 1/3 of height
+  } else if (mouseY < rowHeight * 2) {
+    fill(80, 150);
+    rect(0, rowHeight, width, rowHeight); //if the y mouse pos is smaller than two thirds of the height then a square will be drawn on the middle horizontal third accross the sketch and have 1/3 of height
+  } else {
+    fill(140, 150);
+    rect(0, rowHeight * 2, width, rowHeight); //if the x mouse is bigger than 2/3rds of the heights a rect will me drawn on the lower third of the sketch
+  }
+}
