@@ -1,0 +1,12 @@
+body {
+  background-color: ivory;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden; /* no scroll */
+  font-family: 'serif';
+}
+
+.word {
+  position: absolute;
+  font-weight: bold;
+}
