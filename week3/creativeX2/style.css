@@ -1,0 +1,32 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #000;
+    cursor: pointer;
+}
+
+#grid-container {
+    display: grid;
+    /* This creates as many columns as will fit, at least 150px wide each */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    /* This creates as many rows as will fit, at least 80px high each */
+    grid-template-rows: repeat(auto-fill, minmax(80px, 1fr));
+    width: 100vw;
+    height: 100vh;
+    gap: 2px;
+}
+
+.word {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Impact", sans-serif; 
+    font-size: 2.5rem;
+    color: #fff;
+    text-transform: uppercase;
+    user-select: none;
+    border: none; 
+}
